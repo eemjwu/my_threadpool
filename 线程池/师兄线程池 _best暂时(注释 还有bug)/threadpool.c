@@ -227,7 +227,7 @@ static void* ntyWorkerThread(void *arg) {
    pool->head = job->next;
     
    if (job == pool->tail) {
-    pool->tail == NULL;
+    pool->tail = NULL;
    }
    //  bug !!!  ??
    active = (nWorker*)malloc(sizeof(nWorker));
@@ -312,7 +312,7 @@ static void ntyCloneAttributes(pthread_attr_t *new_attr, pthread_attr_t *old_att
 // 创建线程池
 nThreadPool *ntyThreadPoolCreate(int min_threads, int max_threads, int linger, pthread_attr_t *attr) {
  
- sigfillset(&fillset);
+ sigfillset(&fillset); // 用来将参数set信号集初始化，然后把所有的信号加入到此信号集里
  if (min_threads > max_threads || max_threads < 1) {
   errno = EINVAL;   //表示参数无效  EINVAL 22
   return NULL;
