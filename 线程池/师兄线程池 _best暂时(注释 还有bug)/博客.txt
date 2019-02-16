@@ -1,8 +1,0 @@
-http://blog.51cto.com/wangbojing/1968999
-
-源码有bug.
-现在删除池函数可能还有bug ?
-pool 中的forw back 指针用的有点奇怪,可能有bug?
-
-编译:
-gcc -o _threadpool threadpool.c -pthread
